@@ -1,0 +1,39 @@
+{
+  "name": "monitor-climatico",
+  "version": "1.0.0",
+  "description": "Backend para tratar aplicação do monitoração climática",
+  "main": "loader.js",
+  "scripts": {
+    "test": "mocha --watch --reporter spec --timeout 15000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rodboza/monitor-climatico.git"
+  },
+  "keywords": [
+    "Monitor",
+    "Climatico",
+    "NodeJs",
+    "Mocha",
+    "Express"
+  ],
+  "author": "Rodboza",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rodboza/monitor-climatico/issues"
+  },
+  "homepage": "https://github.com/rodboza/monitor-climatico#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "consign": "^0.1.6",
+    "express": "^4.15.4",
+    "express-query-int": "^1.0.1",
+    "lodash": "^4.17.4"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "chai-http": "^3.0.0",
+    "mocha": "^3.5.0",
+    "nodemon": "^1.11.0"
+  }
+}
