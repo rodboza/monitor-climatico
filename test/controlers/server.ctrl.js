@@ -9,7 +9,7 @@ let AppCtrl =  {
     },
 
     DoBefore(done){
-        console.log(this._app)
+        
         this._server = this._app.listen( this._port, () => { 
             console.log(`Inicializando o servidor na porta ${this._port}.`);
             done(); 
