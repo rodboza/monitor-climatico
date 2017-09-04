@@ -7,7 +7,7 @@ let ArduinoCtrl = {
     Setup (server, chai) {
         this._app = server._app;
         this._chai = chai;
-        this._url = this._app.GetUrl();
+        this._url = server.GetUrl();
     },
     
     GetIntervalRead (done) {
