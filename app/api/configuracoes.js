@@ -4,7 +4,7 @@ module.exports = function(app) {
 
   //INICIO FUNCAO
   api.getNomeValor = function(req, res, next) {
-     return res.sendStatus(202);
+     return res.sendStatus(200);
   }
   //FIM FUNCAO
   
