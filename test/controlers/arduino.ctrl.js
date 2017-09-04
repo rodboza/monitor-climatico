@@ -5,14 +5,14 @@ let ArduinoCtrl = {
     _url:"",
     
     Setup (app, chai) {
-        _app = app;
-        _chai = chai;
-        _url = _app.GetUrl();
+        this._app = app;
+        this._chai = chai;
+        this._url = this._app.GetUrl();
     },
     
     GetIntervalRead (done) {
-        _chai.request(_app)
-        .get( _url + "/configuracoes/Intervalo/valor" )
+        this._chai.request(this._app)
+        .get( this._url + "/configuracoes/Intervalo/valor" )
         .end((err, res) => {
             res.should.be.status(200);
             res.body.should.be.a('Number');
