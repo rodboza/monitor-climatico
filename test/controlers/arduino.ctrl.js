@@ -11,9 +11,9 @@ let ArduinoCtrl = {
     },
     
     GetIntervalRead (done) {
-        console.log(ArduinoCtrl)
-        _chai.request(this._app)
-        .get( this._url + "/configuracoes/Intervalo/valor" )
+        //console.log(ArduinoCtrl)
+        _chai.request(_app)
+        .get( _url + "/configuracoes/Intervalo/valor" )
         .end((err, res) => {
             res.should.be.status(200);
             res.body.should.be.a('Number');
