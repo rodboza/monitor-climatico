@@ -14,6 +14,10 @@ let ServerCtrl =  {
         done();
     }
     
+    DoAfter (done){
+        _server.close();
+        done();
+    }    
 }
     
 module.exports = ServerCtrl;
