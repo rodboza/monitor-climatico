@@ -1,15 +1,15 @@
 let ServerCtrl =  {
     _port:3001,
+    _app:require("../../config/app"),
+    _server:{},
 
     Setup (port) {
         _port = port;
     },
 
     DoBefore(done){
+        _server = _app.listen( _port, ()=> {});
         done();
-        console.log(this);
-        console.log("teste " + this._port);
-        return;
     }
     
 }
