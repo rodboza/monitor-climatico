@@ -7,11 +7,11 @@ let ArduinoCtrl = {
     Setup (app, chai) {
         this._app = app;
         this._chai = chai;
+        console.log(this._chai)
         this._url = this._app.GetUrl();
     },
     
     GetIntervalRead (done) {
-        console.log(this._chai)
         this._chai.request(this._app)
         .get( this._url + "/configuracoes/Intervalo/valor" )
         .end((err, res) => {
