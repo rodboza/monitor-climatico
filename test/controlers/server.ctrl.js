@@ -4,26 +4,29 @@ let AppCtrl =  {
     _server:{},
 
     Setup (port) {
-        this._port = port;
-        this._app = require("../../config/app");
+        I = AppCtrl;
+        I._port = port;
+        I._app = require("../../config/app");
     },
 
     DoBefore(done){
-        
-        this._server = this._app.listen( this._port, () => { 
-            console.log(`Inicializando o servidor na porta ${this._port}.`);
+        I = AppCtrl;
+        I._server = I._app.listen( I._port, () => { 
+            console.log(`Inicializando o servidor na porta ${I._port}.`);
             done(); 
         });
         
     },
     
     DoAfter (done){
-        this._server.close();
+        I = AppCtrl;
+        I._server.close();
         done();
     },
     
     GetUrl () {
-        return "/monitorClimatico";
+        I = AppCtrl;
+        return I._app.url;
     }
 }
     
