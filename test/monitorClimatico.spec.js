@@ -15,7 +15,7 @@ serverTst.Setup (3002);
 describe('Testes do modulo backend do monitor climatico', () => {
 
     before( (done) => serverTst.DoBefore(done) ); 
-    after( () => {} ); 
+    after( (done) => serverTst.DoAfter(done) ); 
 
     describe('Teste de integração com o Arduino', () => {
         it('Arduino consulta tempo para intervalo de leitura.', arduinoTst.GetIntervalRead );
