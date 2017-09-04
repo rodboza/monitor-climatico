@@ -9,8 +9,8 @@ let AppCtrl =  {
     },
 
     DoBefore(done){
-        _server = _app.listen( _port, ()=> {});
-        done();
+        _server = _app.listen( _port, ()=> { done(); });
+        
     },
     
     DoAfter (done){
