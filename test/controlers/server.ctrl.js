@@ -6,11 +6,14 @@ let AppCtrl =  {
     Setup (port) {
         _port = port;
         _app = require("../../config/app");
-        console.log(_app)
     },
 
     DoBefore(done){
-        _server = _app.listen( _port, ()=> { done(); });
+        console.log(_app)
+        _server = _app.listen( _port, () => { 
+            console.log(`Inicializando o servidor na porta ${_port}.`);
+            done(); 
+        });
         
     },
     
