@@ -1,7 +1,7 @@
-let chai = require('chai');
-let chaiHttp = require('chai-http');
-let should = chai.should();
-chai.use(chaiHttp);
+//let chai = require('chai');
+//let chaiHttp = require('chai-http');
+//let should = chai.should();
+//chai.use(chaiHttp);
 
 let ArduinoCtrl = {
     
@@ -17,14 +17,15 @@ let ArduinoCtrl = {
     },
     
     GetIntervalRead (done) {
-        //console.log(ArduinoCtrl._app)
         let I = ArduinoCtrl;
+        console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
+        console.log(I._app)
+        console.log("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<")
         I._chai.request(I._app)
         .get( I._url + "/configuracoes/Intervalo/valor" )
         .end((err, res) => {
-            console.log(err)
-            console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
-            console.log(res)
+            if(err) 
+                done(err);
             res.should.be.status(200);
             res.body.should.be.a('Number');
             //res.body.should.be.eql(_configEx.valor);
