@@ -4,17 +4,13 @@ let AppCtrl =  {
     _server:{},
 
     Setup (port) {
-        I = AppCtrl;
+        let I = AppCtrl;
         I._port = port;
         I._app = require("../../config/app");
     },
 
     DoBefore(done){
-        I = AppCtrl;
-        console.log("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
-        console.log(I);
-        console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
-        console.log(I._port);
+        let I = AppCtrl;
         I._server = I._app.listen( I._port, () => { 
             console.log(`Inicializando o servidor na porta ${I._port}.`);
             done(); 
@@ -23,13 +19,13 @@ let AppCtrl =  {
     },
     
     DoAfter (done){
-        I = AppCtrl;
+        let I = AppCtrl;
         I._server.close();
         done();
     },
     
     GetUrl () {
-        I = AppCtrl;
+        let I = AppCtrl;
         return I._app.url;
     }
 }
