@@ -8,7 +8,7 @@ consign({cwd: 'app'})
   //.include('database')
   //.then('modelo')
   .include('api')
-  .then('rota')
+  .then('rotas')
   .into(app)
 ;
 
