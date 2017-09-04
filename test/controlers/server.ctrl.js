@@ -11,6 +11,10 @@ let AppCtrl =  {
 
     DoBefore(done){
         I = AppCtrl;
+        console.log("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
+        console.log(I);
+        console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+        console.log(I._port);
         I._server = I._app.listen( I._port, () => { 
             console.log(`Inicializando o servidor na porta ${I._port}.`);
             done(); 
