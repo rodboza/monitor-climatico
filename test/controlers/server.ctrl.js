@@ -16,7 +16,11 @@ let AppCtrl =  {
     DoAfter (done){
         _server.close();
         done();
-    }    
+    },
+    
+    GetUrl () {
+        return "/monitorClimatico";
+    }
 }
     
 module.exports = AppCtrl;
