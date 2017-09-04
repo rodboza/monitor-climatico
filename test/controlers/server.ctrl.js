@@ -1,10 +1,11 @@
 let ServerCtrl =  {
     _port:3001,
-    _app:require("../../config/app"),
+    _app:{} 
     _server:{},
 
     Setup (port) {
         _port = port;
+        _app = require("../../config/app");
     },
 
     DoBefore(done){
