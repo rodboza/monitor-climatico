@@ -5,15 +5,17 @@ let ArduinoCtrl = {
     _url:"",
     
     Setup (server, chai) {
-        this._app = server._app;
-        this._chai = chai;
-        this._url = server.GetUrl();
+        let I = ArduinoCtrl;
+        I._app = server._app;
+        I._chai = chai;
+        I._url = server.GetUrl();
     },
     
     GetIntervalRead (done) {
         //console.log(ArduinoCtrl._app)
-        _chai.request(ArduinoCtrl._app)
-        .get( _url + "/configuracoes/Intervalo/valor" )
+        let I = ArduinoCtrl;
+        I._chai.request(I._app)
+        .get( I._url + "/configuracoes/Intervalo/valor" )
         .end((err, res) => {
             res.should.be.status(200);
             res.body.should.be.a('Number');
