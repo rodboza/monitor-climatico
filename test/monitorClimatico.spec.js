@@ -8,6 +8,9 @@ let serverTst = require('./controlers/server.ctrl');
 let arduinoTst = require('./controlers/arduino.ctrl');
 let webPageTst = require('./controlers/webApp.ctrl');
 
+serverTst.Setup (3002);
+
+
 
 describe('Testes do modulo backend do monitor climatico', () => {
 
