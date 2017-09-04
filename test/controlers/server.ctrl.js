@@ -6,7 +6,7 @@ let ServerCtrl =  {
     Setup (port) {
         _port = port;
         _app = require("../../config/app");
-        console.log(_app)
+        
     },
 
     DoBefore(done){
