@@ -11,6 +11,7 @@ let ArduinoCtrl = {
     
     Setup (server, chai) {
         let I = ArduinoCtrl;
+        console.log(server._app.listeners())
         I._app = server._app;
         I._chai = chai;
         I._url = server.GetUrl();
@@ -18,9 +19,7 @@ let ArduinoCtrl = {
     
     GetIntervalRead (done) {
         let I = ArduinoCtrl;
-        console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
-        console.log(I._app.listeners())
-        console.log("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<")
+        console.log(_app.listeners())
         I._chai.request(I._app)
         .get( I._url + "/configuracoes/Intervalo/valor" )
         .end((err, res) => {
