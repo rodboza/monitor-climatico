@@ -9,6 +9,7 @@ let arduinoTst = require('./controlers/arduino.ctrl');
 let webPageTst = require('./controlers/webApp.ctrl');
 
 serverTst.Setup (3002);
+arduinoTst.Setup (serverTst, chai);
 
 
 
@@ -21,7 +22,6 @@ describe('Testes do modulo backend do monitor climatico', () => {
         it('Arduino consulta tempo para intervalo de leitura.', arduinoTst.GetIntervalRead );
         it('Arduino envia dados dos sensores para o backend ', arduinoTst.PostDataSensor );
     });
-
 
     describe('Teste de integração com o applicativo Web/Mobile', () => {
         it('App solicita dados climáticos atuias.', webPageTst.GetActualDada );
