@@ -1,6 +1,6 @@
 let ServerCtrl =  {
     _port:3001,
-    _app:{} 
+    _app:{},
     _server:{},
 
     Setup (port) {
