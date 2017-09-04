@@ -4,8 +4,8 @@ let ArduinoCtrl = {
     _chai:{},
     _url:"",
     
-    Setup (app, chai) {
-        this._app = app;
+    Setup (server, chai) {
+        this._app = server._app;
         this._chai = chai;
         this._url = this._app.GetUrl();
     },
