@@ -18,7 +18,7 @@ let ArduinoCtrl = {
             res.body.should.be.a('Number');
             //res.body.should.be.eql(_configEx.valor);
             done();
-        }
+        });
     }
     
 }
