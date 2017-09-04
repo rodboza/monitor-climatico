@@ -19,7 +19,7 @@ describe('Testes do modulo backend do monitor climatico', () => {
     after( (done) => serverTst.DoAfter(done) ); 
 
     describe('Teste de integração com o Arduino', () => {
-        xit('Arduino consulta tempo para intervalo de leitura.', arduinoTst.GetIntervalRead );
+        it('Arduino consulta tempo para intervalo de leitura.', arduinoTst.GetIntervalRead );
         it('Arduino envia dados dos sensores para o backend ', arduinoTst.PostDataSensor );
     });
 
