@@ -1,4 +1,4 @@
-let ServerCtrl =  {
+let AppCtrl =  {
     _port:3001,
     _app:{},
     _server:{},
@@ -6,13 +6,12 @@ let ServerCtrl =  {
     Setup (port) {
         _port = port;
         _app = require("../../config/app");
-        
     },
 
     DoBefore(done){
         _server = _app.listen( _port, ()=> {});
         done();
-    }
+    },
     
     DoAfter (done){
         _server.close();
@@ -20,4 +19,4 @@ let ServerCtrl =  {
     }    
 }
     
-module.exports = ServerCtrl;
+module.exports = AppCtrl;
