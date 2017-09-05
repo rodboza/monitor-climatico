@@ -6,7 +6,6 @@ module.exports = function(app) {
   var api = app.api.configuracoes;
 
   router
-    .get('/:nome/valor', (req, res, next) => {console.log("testesss");next();})
     .get('/:nome/valor', api.getNomeValor)
     //.get('/', api.getAll)
     //.post('/', api.post)
