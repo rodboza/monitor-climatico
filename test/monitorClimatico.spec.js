@@ -1,25 +1,27 @@
-let chai = require('chai');
-let chaiHttp = require('chai-http');
-let should = chai.should();
+var chai = require('chai');
+var chaiHttp = require('chai-http');
+var should = chai.should();
 chai.use(chaiHttp);
 
 
-let serverTst = require('./controlers/server.ctrl');
-let arduinoTst = require('./controlers/arduino.ctrl');
-let webPageTst = require('./controlers/webApp.ctrl');
+var serverTst = require('./controlers/server.ctrl');
+serverTst.Setup (3011);
 
-serverTst.Setup (3002);
+var arduinoTst = require('./controlers/arduino.ctrl');
 arduinoTst.Setup (serverTst, chai);
 
+var webPageTst = require('./controlers/webApp.ctrl');
 
 
-describe('Testes do modulo backend do monitor climatico', () => {
+before( (done) => serverTst.DoBefore(done) ); 
+after( (done) => serverTst.DoAfter(done) ); 
 
-    before( (done) => serverTst.DoBefore(done) ); 
-    after( (done) => serverTst.DoAfter(done) ); 
+//describe('Testes do modulo backend do monitor climatico', () => {
+
+
 
     describe('Teste de integração com o Arduino', () => {
-        it('Arduino consulta tempo para intervalo de leitura.', arduinoTst.GetIntervalRead );
+        it('Arduino consulta tempo para intervalo de leitura.', (done) => arduinoTst.GetIntervalRead(done) );
         it('Arduino envia dados dos sensores para o backend ', arduinoTst.PostDataSensor );
     });
 
@@ -27,4 +29,4 @@ describe('Testes do modulo backend do monitor climatico', () => {
         it('App solicita dados climáticos atuias.', webPageTst.GetActualDada );
         it('App solicita uma lista de configurações.', webPageTst.GetConfigList );
     });
-});
+//});

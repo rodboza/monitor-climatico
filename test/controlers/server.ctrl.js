@@ -1,33 +1,34 @@
-let AppCtrl =  {
-    _port:3001,
-    _app:{},
-    _server:{},
+    let vm = {};
 
-    Setup (port) {
-        let I = AppCtrl;
-        I._port = port;
-        I._app = require("../../config/app");
-    },
+    vm._port = 0;
+    vm._app = {};
+    vm._server = {};
 
-    DoBefore(done){
-        let I = AppCtrl;
-        I._server = I._app.listen( I._port, () => { 
-            console.log(`Inicializando o servidor na porta ${I._port}.`);
+    vm.Setup = (port) => {
+        vm._port = port;
+        vm._app = require("../../config/app");
+        vm._server = {};
+    }
+
+    vm.DoBefore = (done) => {
+        vm._server = vm._app.listen( vm._port, () => { 
+            console.log(`Inicializando o servidor na porta ${ vm._port}.`);
             done(); 
         });
-        
-    },
-    
-    DoAfter (done){
-        let I = AppCtrl;
-        I._server.close();
-        done();
-    },
-    
-    GetUrl () {
-        let I = AppCtrl;
-        return I._app.url;
     }
-}
     
-module.exports = AppCtrl;
+    vm.DoAfter = (done) => {
+        vm._server.close();
+        console.log(`finalizando o servidor na porta ${ vm._port}.`);
+        done();
+    }
+    
+    vm.GetUrl = () => {
+        return "";
+    }
+        
+    vm.GetApp = () => {
+        return vm._app;
+    }
+        
+    module.exports = vm;

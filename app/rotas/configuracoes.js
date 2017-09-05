@@ -1,19 +1,20 @@
-let express    = require('express');
+var express    = require('express');
 
 module.exports = function(app) {
 
-  let router = express.Router();
-  let api = app.api.configuracoes;
+  var router = express.Router();
+  var api = app.api.configuracoes;
 
   router
+    .get('/:nome/valor', (req, res, next) => {console.log("testesss");next();})
     .get('/:nome/valor', api.getNomeValor)
     //.get('/', api.getAll)
     //.post('/', api.post)
     //.get('/:nome', api.getName, api.getOne)
     //.put('/:nome', api.getName, api.put)
-    //.delete('/:nome', api.getName, api.delete)
+    //.devare('/:nome', api.getName, api.devare)
   ;
 
-  app.use( app.url + '/configuracoes', router);
+  app.use('/configuracoes', router);
 
 };

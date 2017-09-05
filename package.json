@@ -4,7 +4,9 @@
   "description": "Backend para tratar aplicação do monitoração climática",
   "main": "loader.js",
   "scripts": {
-    "test": "mocha --watch --reporter spec --timeout 15000"
+    "test": "mocha --watch --reporter spec --timeout 15000",
+    "start": "node loader.js",
+    "dev": "nodemon"
   },
   "repository": {
     "type": "git",
