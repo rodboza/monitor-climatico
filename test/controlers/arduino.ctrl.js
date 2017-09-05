@@ -1,18 +1,21 @@
 
-let vm = {}
-    vm._app = {};
-    vm._chai = {};
-    vm._url = {};
+class ArduinoCtrl {
+    
+    constructor () {
+        this._app = {};
+        this._chai = {};
+        this._url = {};
+    }
 
-    vm.Setup = (server, chai) => {
-        vm._app = server.GetApp();
-        vm._chai = chai;
-        vm._url = server.GetUrl();
+    Setup (server, chai) {
+        this._app = server.GetApp();
+        this._chai = chai;
+        this._url = server.GetUrl();
     }
     
-    vm.GetIntervalRead = (done) => {
-        vm._chai.request(vm._app)
-        .get( vm._url + "/configuracoes/Intervalo/valor" )
+    GetIntervalRead (done) {
+        this._chai.request(this._app)
+        .get( this._url + "/configuracoes/Intervalo/valor" )
         .end((err, res) => {
             if(err) 
                 done(err);
@@ -22,6 +25,7 @@ let vm = {}
             done();
         });
     }
-    
-    module.exports = vm;
+}
+
+module.exports = new ArduinoCtrl();
 

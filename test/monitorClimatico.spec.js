@@ -16,9 +16,7 @@ var webPageTst = require('./controlers/webApp.ctrl');
 before( (done) => serverTst.DoBefore(done) ); 
 after( (done) => serverTst.DoAfter(done) ); 
 
-//describe('Testes do modulo backend do monitor climatico', () => {
-
-
+describe('Testes do modulo backend do monitor climatico', () => {
 
     describe('Teste de integração com o Arduino', () => {
         it('Arduino consulta tempo para intervalo de leitura.', (done) => arduinoTst.GetIntervalRead(done) );
@@ -29,4 +27,4 @@ after( (done) => serverTst.DoAfter(done) );
         it('App solicita dados climáticos atuias.', webPageTst.GetActualDada );
         it('App solicita uma lista de configurações.', webPageTst.GetConfigList );
     });
-//});
+});
